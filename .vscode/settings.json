@@ -1,0 +1,11 @@
+{
+    "cmake.configureOnOpen": true,
+    "cmake.buildDirectory" : "${workspaceFolder}/build",
+    "cmake.preferredGenerators": [
+        "Unix Makefiles",
+        "MinGW Makefiles"
+    ],
+    "files.associations": {
+        "health_tracker.h": "c"
+    },
+}

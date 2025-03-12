@@ -1,0 +1,3 @@
+/home/dnd1/Documents/DND_Screen/build/CMakeFiles/DND_Screen.dir
+/home/dnd1/Documents/DND_Screen/build/CMakeFiles/edit_cache.dir
+/home/dnd1/Documents/DND_Screen/build/CMakeFiles/rebuild_cache.dir
