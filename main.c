@@ -14,6 +14,7 @@
 #include "src/health_tracker.h"
 #include "src/profile_logic.h"
 #include "src/character_logic.h"
+#include "add_char_logic.h"
 #include <stdio.h>
 #include <cjson/cJSON.h>
 
@@ -27,17 +28,6 @@ static lv_display_t * hal_init(int32_t w, int32_t h);
  *      FUNCTIONS
  **********************/
 
-// Function to fetch profiles at startup
-void run_fetch_profiles() {
-    printf("DEBUG: Fetching profiles from API...\n");
-    int result = system("python3 /home/dnd1/Documents/DND_Screen/fetch_profiles.py"); 
-
-    if (result != 0) {
-        printf("ERROR: Failed to fetch profiles!\n");
-    } else {
-        printf("DEBUG: Profiles fetched successfully.\n");
-    }
-}
 
 void reset_guest_data() {
     printf("DEBUG: Resetting guest_data.json to default values...\n");
@@ -93,6 +83,10 @@ int main(int argc, char **argv) {
 
     /* Attach UI events for health tracker */
     setup_health_screen_events();
+
+    /*Inside your main setup function */
+    setup_add_char_events();
+    
 
     printf("DEBUG: Starting LVGL loop...\n");
 

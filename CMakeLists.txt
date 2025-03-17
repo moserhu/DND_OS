@@ -36,6 +36,7 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/lvgl
     ${PROJECT_SOURCE_DIR}/ui
     ${PROJECT_SOURCE_DIR}/src  # Include custom logic folder
+    /usr/include/aarch64-linux-gnu/  # Manually added CURL include directory
 )
 
 # Gather source files
@@ -43,8 +44,12 @@ FILE(GLOB_RECURSE LVGL_Sources CONFIGURE_DEPENDS lvgl/*.c)
 FILE(GLOB_RECURSE UI_Sources CONFIGURE_DEPENDS ui/*.c ui/*.cpp)
 FILE(GLOB_RECURSE LOGIC_Sources CONFIGURE_DEPENDS src/*.c)
 
+# Manually define CURL paths
+set(CURL_INCLUDE_DIR "/usr/include/aarch64-linux-gnu")
+set(CURL_LIBRARY "/usr/lib/aarch64-linux-gnu/libcurl.so")
+
 # Add executable
 add_executable(${PROJECT_NAME} main.c ${LVGL_Sources} ${UI_Sources} ${LOGIC_Sources})
 
 # Link required libraries
-target_link_libraries(${PROJECT_NAME} -L"${PROJECT_SOURCE_DIR}/${SDL_FOLDER}/lib" SDL2 cjson)
+target_link_libraries(${PROJECT_NAME} -L"${PROJECT_SOURCE_DIR}/${SDL_FOLDER}/lib" SDL2 cjson ${CURL_LIBRARY})

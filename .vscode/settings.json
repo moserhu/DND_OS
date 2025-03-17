@@ -6,6 +6,7 @@
         "MinGW Makefiles"
     ],
     "files.associations": {
-        "health_tracker.h": "c"
+        "health_tracker.h": "c",
+        "character_logic.h": "c"
     },
 }

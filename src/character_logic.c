@@ -13,6 +13,7 @@
 char selected_character[50];
 int selected_character_hp = 0;
 int selected_character_max_hp = 0;
+int selected_character_id = -1; 
 
 void load_characters(const char *profile_name) {
     FILE *file = fopen(JSON_FILE_PATH, "r");
@@ -39,7 +40,7 @@ void load_characters(const char *profile_name) {
     }
 
     int profile_count = cJSON_GetArraySize(json);
-    char dropdown_options[512] = ""; // Clear dropdown options
+    char dropdown_options[512] = "";
 
     for (int i = 0; i < profile_count; i++) {
         cJSON *profile = cJSON_GetArrayItem(json, i);
@@ -52,10 +53,12 @@ void load_characters(const char *profile_name) {
             if (char_count > 0) {
                 cJSON *first_character = cJSON_GetArrayItem(characters, 0);
                 cJSON *char_name = cJSON_GetObjectItem(first_character, "name");
+                cJSON *char_id = cJSON_GetObjectItem(first_character, "id");
 
-                if (char_name) {
-                    strcpy(selected_character, char_name->valuestring);  // 🚀 Auto-select first character in logic
-                    printf("DEBUG: Default selected character: %s\n", selected_character);
+                if (char_name && char_id) {
+                    strcpy(selected_character, char_name->valuestring);
+                    selected_character_id = char_id->valueint;
+                    printf("DEBUG: Default selected character: %s (ID: %d)\n", selected_character, selected_character_id);
                 }
             }
 
@@ -73,16 +76,12 @@ void load_characters(const char *profile_name) {
     }
 
     lv_dropdown_set_options(ui_Dropdown2, dropdown_options);
-    lv_dropdown_set_selected(ui_Dropdown2, 0);  // 🚀 UI default selection
+    lv_dropdown_set_selected(ui_Dropdown2, 0);
 
     cJSON_Delete(json);
 
-    // 🚀 Manually trigger logic as if user selected first character
     on_character_selected(NULL);
 }
-
-
-
 
 void on_character_selected(lv_event_t * e) {
     int selected_index = lv_dropdown_get_selected(ui_Dropdown2);
@@ -115,15 +114,20 @@ void on_character_selected(lv_event_t * e) {
             cJSON *character = cJSON_GetArrayItem(characters, selected_index);
 
             if (character) {
-                strcpy(selected_character, cJSON_GetObjectItem(character, "name")->valuestring);
-                selected_character_hp = cJSON_GetObjectItem(character, "current_hp")->valueint;
-                selected_character_max_hp = cJSON_GetObjectItem(character, "max_hp")->valueint;
+                cJSON *char_name = cJSON_GetObjectItem(character, "name");
+                cJSON *char_id = cJSON_GetObjectItem(character, "id");
 
-                printf("DEBUG: Character selected: %s\n", selected_character);
+                if (char_name && char_id) {
+                    strcpy(selected_character, char_name->valuestring);
+                    selected_character_id = char_id->valueint;
+                    selected_character_hp = cJSON_GetObjectItem(character, "current_hp")->valueint;
+                    selected_character_max_hp = cJSON_GetObjectItem(character, "max_hp")->valueint;
 
-                // 🚀 Update health UI with selected character's values
-                write_health_data(selected_character_hp, selected_character_max_hp, 0);
-                update_health_display();
+                    printf("DEBUG: Character selected: %s (ID: %d)\n", selected_character, selected_character_id);
+
+                    write_health_data(selected_character_hp, selected_character_max_hp, 0);
+                    update_health_display();
+                }
             }
             break;
         }
@@ -131,3 +135,13 @@ void on_character_selected(lv_event_t * e) {
 
     cJSON_Delete(json);
 }
+
+// 🚀 Function to retrieve the character ID
+int get_character_id(const char *character_name) {
+    if (strcmp(character_name, selected_character) == 0) {
+        return selected_character_id;
+    }
+    return -1;
+}
+
+

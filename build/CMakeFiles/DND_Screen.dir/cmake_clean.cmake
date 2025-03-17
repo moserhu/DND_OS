@@ -589,6 +589,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/DND_Screen.dir/lvgl/src/widgets/win/lv_win.c.obj.d"
   "CMakeFiles/DND_Screen.dir/main.c.obj"
   "CMakeFiles/DND_Screen.dir/main.c.obj.d"
+  "CMakeFiles/DND_Screen.dir/src/add_char_logic.c.obj"
+  "CMakeFiles/DND_Screen.dir/src/add_char_logic.c.obj.d"
   "CMakeFiles/DND_Screen.dir/src/character_logic.c.obj"
   "CMakeFiles/DND_Screen.dir/src/character_logic.c.obj.d"
   "CMakeFiles/DND_Screen.dir/src/health_tracker.c.obj"

@@ -4,8 +4,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <cjson/cJSON.h>
+#include <curl/curl.h> 
 #include "character_logic.h"  // 🚀 Needed to access `selected_character`
 #include "profile_logic.h"
+
 
 #define HEALTH_DATA_FILE "/home/dnd1/Documents/DND_Screen/health_data.json"
 #define GUEST_DATA_FILE "/home/dnd1/Documents/DND_Screen/guest_data.json"
@@ -36,6 +38,50 @@ void init_health_tracker() {
     }
     
     update_health_display();
+}
+
+void send_health_update(const char *new_name, int current, int max, int temp) {
+    if (is_guest_mode) return;
+
+    int profile_id = get_profile_id(selected_profile);
+    int character_id = selected_character_id;  // ✅ Use character ID instead of name
+
+    if (profile_id == -1 || character_id == -1) {
+        printf("ERROR: Missing profile or character ID, skipping API update.\n");
+        return;
+    }
+
+    CURL *curl = curl_easy_init();
+    if (!curl) {
+        printf("ERROR: Failed to initialize cURL\n");
+        return;
+    }
+
+    char url[256];
+    snprintf(url, sizeof(url), "http://192.168.1.222:8000/profiles/%d/characters/%d", profile_id, character_id);
+
+    char json_data[512];
+    snprintf(json_data, sizeof(json_data),
+             "{\"name\": \"%s\", \"current_hp\": %d, \"max_hp\": %d, \"temp_hp\": %d}",
+             new_name, current, max, temp);
+
+    struct curl_slist *headers = NULL;
+    headers = curl_slist_append(headers, "Content-Type: application/json");
+
+    curl_easy_setopt(curl, CURLOPT_URL, url);
+    curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "PUT");
+    curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+    curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json_data);
+
+    CURLcode res = curl_easy_perform(curl);
+    if (res != CURLE_OK) {
+        printf("ERROR: Failed to send update. cURL error: %s\n", curl_easy_strerror(res));
+    } else {
+        printf("DEBUG: Name & Health update sent to API\n");
+    }
+
+    curl_slist_free_all(headers);
+    curl_easy_cleanup(curl);
 }
 
 
@@ -111,7 +157,6 @@ void read_health_data(int *current, int *max, int *temp) {
     cJSON_Delete(json);
 }
 
-// Function to write updated health data to JSON
 void write_health_data(int current, int max, int temp) {
     const char *file_path = is_guest_mode ? GUEST_DATA_FILE : HEALTH_DATA_FILE;
 
@@ -202,7 +247,7 @@ void write_health_data(int current, int max, int temp) {
         printf("ERROR: Character '%s' not found!\n", selected_character);
     }
 
-    // Save changes
+    // Save changes locally
     char *updated_json_string = cJSON_Print(json);
     file = fopen(HEALTH_DATA_FILE, "w");
     if (file) {
@@ -214,8 +259,10 @@ void write_health_data(int current, int max, int temp) {
 
     free(updated_json_string);
     cJSON_Delete(json);
-}
 
+    // 🚀 Background API update
+    send_health_update(selected_character, current, max, temp);
+}
 
 
 // Function to update the UI health display
@@ -265,22 +312,24 @@ void update_health_display() {
 }
 
 
-//function to set and get character name
 void set_character_name(const char *new_name) {
-    const char *file_path = is_guest_mode ? GUEST_DATA_FILE : HEALTH_DATA_FILE;
+    if (is_guest_mode) {
+        printf("WARNING: Guest name cannot be changed!\n");
+        return;
+    }
 
+    const char *file_path = is_guest_mode ? GUEST_DATA_FILE : HEALTH_DATA_FILE;
     FILE *file = fopen(file_path, "r");
     if (!file) {
         printf("ERROR: Cannot open %s for reading!\n", file_path);
         return;
     }
 
-    char *json_data = NULL;
     fseek(file, 0, SEEK_END);
     long file_size = ftell(file);
     rewind(file);
 
-    json_data = (char *)malloc(file_size + 1);
+    char *json_data = (char *)malloc(file_size + 1);
     fread(json_data, 1, file_size, file);
     fclose(file);
     json_data[file_size] = '\0';
@@ -294,35 +343,45 @@ void set_character_name(const char *new_name) {
     }
 
     if (is_guest_mode) {
-        // 🚀 Update guest name
         cJSON_ReplaceItemInObject(json, "name", cJSON_CreateString(new_name));
     } else {
-        // 🚀 Find the selected character and update name
+        // ✅ Find profile by ID
+        cJSON *profile = NULL;
+        cJSON *characters = NULL;
         int profile_count = cJSON_GetArraySize(json);
+
         for (int i = 0; i < profile_count; i++) {
-            cJSON *profile = cJSON_GetArrayItem(json, i);
-            cJSON *name = cJSON_GetObjectItem(profile, "name");
+            profile = cJSON_GetArrayItem(json, i);
+            cJSON *profile_id_item = cJSON_GetObjectItem(profile, "id");
 
-            if (name && strcmp(name->valuestring, selected_profile) == 0) {
-                cJSON *characters = cJSON_GetObjectItem(profile, "characters");
-                int char_count = cJSON_GetArraySize(characters);
+            if (profile_id_item && profile_id_item->valueint == get_profile_id(selected_profile)) {
+                characters = cJSON_GetObjectItem(profile, "characters");
+                break;
+            }
+        }
 
-                for (int j = 0; j < char_count; j++) {
-                    cJSON *character = cJSON_GetArrayItem(characters, j);
-                    cJSON *char_name = cJSON_GetObjectItem(character, "name");
+        if (!characters) {
+            printf("ERROR: Profile '%s' not found!\n", selected_profile);
+            cJSON_Delete(json);
+            return;
+        }
 
-                    if (char_name && strcmp(char_name->valuestring, selected_character) == 0) {
-                        cJSON_SetValuestring(char_name, new_name);
-                        strcpy(selected_character, new_name);
-                        break;
-                    }
-                }
+        // ✅ Find character by ID
+        cJSON *character = NULL;
+        int char_count = cJSON_GetArraySize(characters);
+
+        for (int j = 0; j < char_count; j++) {
+            character = cJSON_GetArrayItem(characters, j);
+            cJSON *char_id = cJSON_GetObjectItem(character, "id");
+
+            if (char_id && char_id->valueint == selected_character_id) {
+                cJSON_ReplaceItemInObject(character, "name", cJSON_CreateString(new_name));
                 break;
             }
         }
     }
 
-    // 🚀 Save updated JSON to file
+    // ✅ Save updated JSON to file
     char *updated_json = cJSON_Print(json);
     file = fopen(file_path, "w");
     if (file) {
@@ -335,10 +394,18 @@ void set_character_name(const char *new_name) {
     free(updated_json);
     cJSON_Delete(json);
 
-    // 🚀 Update UI to reflect new name
+    // ✅ Update UI and send API update
+    strcpy(selected_character, new_name);
     lv_textarea_set_text(ui_CharName, new_name);
     lv_textarea_set_text(ui_NameBoardDisplay, new_name);
+
+    // ✅ Send updated name to the API
+    int current_health, max_health, temp_health;
+    read_health_data(&current_health, &max_health, &temp_health);
+    send_health_update(new_name, current_health, max_health, temp_health);
 }
+
+
 
 
 // Function to set max health
@@ -466,6 +533,9 @@ void temp_health_input_cb(lv_event_t *e) {
 
 // Callback for character name update
 void character_name_input_cb(lv_event_t *e) {
+    int current_health, max_health, temp_health;
+    read_health_data(&current_health, &max_health, &temp_health);
+
     if (is_guest_mode) {
         printf("WARNING: Guest name cannot be changed!\n");
         return;
@@ -475,6 +545,8 @@ void character_name_input_cb(lv_event_t *e) {
 
     if (strlen(new_name) > 0) {
         set_character_name(new_name);
+        write_health_data(current_health, max_health, temp_health);
+        update_health_display(); 
     }
 }
 
@@ -482,6 +554,7 @@ void character_name_input_cb(lv_event_t *e) {
 // Callback for Back Button
 void back_button_event_cb(lv_event_t *e) {
     printf("DEBUG: Back Button Pressed\n");
+    int profile_id = get_profile_id(selected_profile);
 
     if (is_guest_mode) {
         printf("DEBUG: Exiting Guest Mode...\n");
@@ -504,6 +577,11 @@ void back_button_event_cb(lv_event_t *e) {
         // Navigate back to the Welcome Screen
         _ui_screen_change(&ui_WelcomeScreen, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 200, 0, &ui_WelcomeScreen_screen_init);
     } else {
+
+        load_characters(selected_profile);
+        
+        lv_dropdown_set_selected(ui_Dropdown2, 0);
+        on_character_selected(NULL);  // Simulate character selection
         // 🚀 Normal mode: Return to Character Selection
         _ui_screen_change(&ui_CharChoiceScreen, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 200, 0, &ui_CharChoiceScreen_screen_init);
     }
@@ -541,7 +619,3 @@ void setup_health_screen_events() {
 
     printf("DEBUG: Event Callbacks Attached Successfully!\n");
 }
-
-
-
-

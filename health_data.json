@@ -2,39 +2,63 @@
 		"id":	1,
 		"name":	"Pablo",
 		"characters":	[{
-				"name":	"Thalric Stormblade",
-				"current_hp":	72,
-				"max_hp":	120,
+				"id":	2,
+				"name":	"hi",
+				"current_hp":	15,
+				"max_hp":	19,
 				"temp_hp":	0
 			}, {
-				"name":	"Elara Nightshade",
-				"current_hp":	54,
-				"max_hp":	90,
+				"id":	61,
+				"name":	"him",
+				"current_hp":	100,
+				"max_hp":	100,
+				"temp_hp":	0
+			}, {
+				"id":	63,
+				"name":	"kol",
+				"current_hp":	100,
+				"max_hp":	100,
+				"temp_hp":	0
+			}, {
+				"id":	64,
+				"name":	"New Character",
+				"current_hp":	100,
+				"max_hp":	100,
 				"temp_hp":	0
 			}]
 	}, {
 		"id":	2,
 		"name":	"Shaye",
 		"characters":	[{
+				"id":	3,
 				"name":	"Dain Ironfist",
 				"current_hp":	110,
 				"max_hp":	130,
 				"temp_hp":	0
 			}, {
+				"id":	4,
 				"name":	"Sylva Moonsong",
 				"current_hp":	45,
 				"max_hp":	85,
+				"temp_hp":	0
+			}, {
+				"id":	62,
+				"name":	"New Character",
+				"current_hp":	100,
+				"max_hp":	100,
 				"temp_hp":	0
 			}]
 	}, {
 		"id":	3,
 		"name":	"Gabriel",
 		"characters":	[{
+				"id":	5,
 				"name":	"Kaelen Virethorn",
 				"current_hp":	98,
 				"max_hp":	140,
 				"temp_hp":	0
 			}, {
+				"id":	6,
 				"name":	"Nyx Shadowwhisper",
 				"current_hp":	30,
 				"max_hp":	75,
@@ -44,11 +68,13 @@
 		"id":	4,
 		"name":	"Hunter",
 		"characters":	[{
+				"id":	7,
 				"name":	"Annabelle Winchester",
 				"current_hp":	98,
 				"max_hp":	140,
 				"temp_hp":	0
 			}, {
+				"id":	8,
 				"name":	"Tom the test",
 				"current_hp":	30,
 				"max_hp":	75,
@@ -58,11 +84,13 @@
 		"id":	5,
 		"name":	"Dalton",
 		"characters":	[{
+				"id":	9,
 				"name":	"Zeev",
-				"current_hp":	98,
+				"current_hp":	52,
 				"max_hp":	140,
 				"temp_hp":	0
 			}, {
+				"id":	10,
 				"name":	"Dungeon Master",
 				"current_hp":	30,
 				"max_hp":	75,

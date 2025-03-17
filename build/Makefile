@@ -7210,6 +7210,30 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DND_Screen.dir/build.make CMakeFiles/DND_Screen.dir/main.c.s
 .PHONY : main.c.s
 
+src/add_char_logic.obj: src/add_char_logic.c.obj
+.PHONY : src/add_char_logic.obj
+
+# target to build an object file
+src/add_char_logic.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DND_Screen.dir/build.make CMakeFiles/DND_Screen.dir/src/add_char_logic.c.obj
+.PHONY : src/add_char_logic.c.obj
+
+src/add_char_logic.i: src/add_char_logic.c.i
+.PHONY : src/add_char_logic.i
+
+# target to preprocess a source file
+src/add_char_logic.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DND_Screen.dir/build.make CMakeFiles/DND_Screen.dir/src/add_char_logic.c.i
+.PHONY : src/add_char_logic.c.i
+
+src/add_char_logic.s: src/add_char_logic.c.s
+.PHONY : src/add_char_logic.s
+
+# target to generate assembly for a file
+src/add_char_logic.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DND_Screen.dir/build.make CMakeFiles/DND_Screen.dir/src/add_char_logic.c.s
+.PHONY : src/add_char_logic.c.s
+
 src/character_logic.obj: src/character_logic.c.obj
 .PHONY : src/character_logic.obj
 
@@ -8512,6 +8536,9 @@ help:
 	@echo "... main.obj"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/add_char_logic.obj"
+	@echo "... src/add_char_logic.i"
+	@echo "... src/add_char_logic.s"
 	@echo "... src/character_logic.obj"
 	@echo "... src/character_logic.i"
 	@echo "... src/character_logic.s"
