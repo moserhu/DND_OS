@@ -1,6 +1,6 @@
-set(CMAKE_HOST_SYSTEM "Linux-6.6.74+rpt-rpi-v8")
+set(CMAKE_HOST_SYSTEM "Linux-6.12.20+rpt-rpi-v8")
 set(CMAKE_HOST_SYSTEM_NAME "Linux")
-set(CMAKE_HOST_SYSTEM_VERSION "6.6.74+rpt-rpi-v8")
+set(CMAKE_HOST_SYSTEM_VERSION "6.12.20+rpt-rpi-v8")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "aarch64")
 
 

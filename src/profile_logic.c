@@ -10,10 +10,11 @@
 #include "add_char_logic.h"
 
 #define JSON_FILE_PATH "/home/dnd1/Documents/DND_Screen/health_data.json"
-#define API_BASE_URL "http://192.168.1.222:8000"
+#define API_BASE_URL "http://192.168.1.116:9092"
 
 char selected_profile[50];  // Store the selected profile name
 
+// bring in the profiles from the db and add to the json
 void load_profiles() {
     printf("DEBUG: Loading profiles...\n");
 
@@ -54,7 +55,7 @@ void load_profiles() {
         cJSON *name = cJSON_GetObjectItem(first_profile, "name");
 
         if (name) {
-            strcpy(selected_profile, name->valuestring);  // ✅ Ensure profile is set
+            strcpy(selected_profile, name->valuestring);  //  Ensure profile is set
             printf("DEBUG: Default selected profile: %s\n", selected_profile);
         }
     } else {
@@ -75,10 +76,11 @@ void load_profiles() {
     lv_dropdown_set_selected(ui_Dropdown1, 0);  // ✅ UI default selection
     cJSON_Delete(json);
 
-    // ✅ Manually trigger profile selection
+    // Manually trigger profile selection
     on_profile_selected(NULL);
 }
 
+// function to change active profile when user interacts with UI
 void on_profile_selected(lv_event_t * e) {
     int selected_index = lv_dropdown_get_selected(ui_Dropdown1);
 
@@ -109,11 +111,11 @@ void on_profile_selected(lv_event_t * e) {
     printf("DEBUG: Profile selected: %s\n", selected_profile);
     cJSON_Delete(json);
 
-    // 🚀 Load characters for this profile immediately
+    //  Load characters for this profile immediately
     load_characters(selected_profile);
 }
 
-// 🚀 Helper function to store API response
+//  Helper function to store API response
 size_t write_callback(void *ptr, size_t size, size_t nmemb, void *userdata) {
     size_t total_size = size * nmemb;
     char *response = (char *)userdata;
@@ -126,7 +128,7 @@ size_t write_callback(void *ptr, size_t size, size_t nmemb, void *userdata) {
 
 
 
-// 🚀 Function to get the Profile ID from API
+//  Function to get the Profile ID from API
 int get_profile_id(const char *profile_name) {
     if (!profile_name) {
         printf("ERROR: Profile name is NULL\n");
@@ -155,7 +157,7 @@ int get_profile_id(const char *profile_name) {
         return -1;
     }
 
-    // 🚀 Parse API response JSON
+    //  Parse API response JSON
     cJSON *json = cJSON_Parse(response);
     if (!json) {
         printf("DEBUG: Raw API Response for profiles: %s\n", response);

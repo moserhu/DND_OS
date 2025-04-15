@@ -14,7 +14,7 @@ void load_characters(const char *profile_name);
 // Handle character selection
 void on_character_selected(lv_event_t * e);
 
-// 🚀 Re-add get_character_id function
+//  get the character id
 int get_character_id(const char *character_name);
 
 

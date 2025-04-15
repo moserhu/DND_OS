@@ -15,6 +15,7 @@ int selected_character_hp = 0;
 int selected_character_max_hp = 0;
 int selected_character_id = -1; 
 
+//function to load all chracters from the json file
 void load_characters(const char *profile_name) {
     FILE *file = fopen(JSON_FILE_PATH, "r");
     if (!file) {
@@ -83,6 +84,8 @@ void load_characters(const char *profile_name) {
     on_character_selected(NULL);
 }
 
+
+//function to change variables as a new character is selected
 void on_character_selected(lv_event_t * e) {
     int selected_index = lv_dropdown_get_selected(ui_Dropdown2);
 
@@ -136,7 +139,7 @@ void on_character_selected(lv_event_t * e) {
     cJSON_Delete(json);
 }
 
-// 🚀 Function to retrieve the character ID
+// Function to retrieve the character ID
 int get_character_id(const char *character_name) {
     if (strcmp(character_name, selected_character) == 0) {
         return selected_character_id;

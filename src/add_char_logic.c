@@ -10,7 +10,7 @@
 #include "character_logic.h"
 #include "health_tracker.h"
 
-#define DB_API_URL "http://192.168.1.222:8000/profiles/%d/characters"
+#define DB_API_URL "http://192.168.1.116:9092/profiles/%d/characters"
 #define JSON_FILE_PATH "/home/dnd1/Documents/DND_Screen/health_data.json"
 
 
@@ -29,7 +29,7 @@ void run_fetch_profiles() {
     }
 }
 
-//function to load the last character int he list
+//function to load the last character in the list
 void load_last_character(const char *profile_name) {
     printf("DEBUG: Loading last character for profile: %s\n", profile_name);
 
@@ -84,7 +84,7 @@ void load_last_character(const char *profile_name) {
     cJSON_Delete(json);
 }
 
-
+//function to add a new character
 void add_new_character(lv_event_t *e) {
     printf("DEBUG: Starting character creation...\n");
 
@@ -130,11 +130,11 @@ void add_new_character(lv_event_t *e) {
     }
 
 
-    // Step 3: Refresh Profiles & Characters
+    // Step 2: Refresh Profiles & Characters
     run_fetch_profiles();
     sleep(1); // Allow data to refresh
 
-    // Step 2: Parse API Response
+    // Step 3: Parse API Response
     cJSON *json = cJSON_Parse(response_buffer);
     if (!json) {
         printf("ERROR: Failed to parse API response\n");

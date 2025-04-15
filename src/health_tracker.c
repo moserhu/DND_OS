@@ -5,7 +5,7 @@
 #include <string.h>
 #include <cjson/cJSON.h>
 #include <curl/curl.h> 
-#include "character_logic.h"  // 🚀 Needed to access `selected_character`
+#include "character_logic.h" 
 #include "profile_logic.h"
 
 
@@ -18,7 +18,7 @@ int is_guest_mode = 0;
 void init_health_tracker() {
     printf("DEBUG: Initializing Health Tracker\n");
 
-    // 🚀 Ensure guest data resets at startup
+    //  Ensure guest data resets at startup
     FILE *guest_file = fopen(GUEST_DATA_FILE, "w");
     if (guest_file) {
         fprintf(guest_file, "{\"name\":\"Guest\", \"current_hp\":0, \"max_hp\":0, \"temp_hp\":0}");
@@ -28,7 +28,7 @@ void init_health_tracker() {
         printf("ERROR: Failed to reset guest_data.json!\n");
     }
 
-    // 🚀 Ensure main health_data.json exists
+    //  Ensure main health_data.json exists
     FILE *file = fopen(HEALTH_DATA_FILE, "r");
     if (!file) {
         printf("DEBUG: Health data file not found, creating new one...\n");
@@ -40,11 +40,12 @@ void init_health_tracker() {
     update_health_display();
 }
 
+// function to send all the info to the api and update the DB
 void send_health_update(const char *new_name, int current, int max, int temp) {
     if (is_guest_mode) return;
 
     int profile_id = get_profile_id(selected_profile);
-    int character_id = selected_character_id;  // ✅ Use character ID instead of name
+    int character_id = selected_character_id; 
 
     if (profile_id == -1 || character_id == -1) {
         printf("ERROR: Missing profile or character ID, skipping API update.\n");
@@ -58,7 +59,7 @@ void send_health_update(const char *new_name, int current, int max, int temp) {
     }
 
     char url[256];
-    snprintf(url, sizeof(url), "http://192.168.1.222:8000/profiles/%d/characters/%d", profile_id, character_id);
+    snprintf(url, sizeof(url), "http://192.168.1.116:9092/profiles/%d/characters/%d", profile_id, character_id);
 
     char json_data[512];
     snprintf(json_data, sizeof(json_data),
@@ -112,12 +113,12 @@ void read_health_data(int *current, int *max, int *temp) {
     }
 
     if (is_guest_mode) {
-        // 🚀 Read simple guest structure
+        // Read simple guest structure
         *current = cJSON_GetObjectItem(json, "current_hp")->valueint;
         *max = cJSON_GetObjectItem(json, "max_hp")->valueint;
         *temp = cJSON_GetObjectItem(json, "temp_hp")->valueint;
     } else {
-        // 🚀 Read from structured health_data.json
+        // Read from structured health_data.json
         cJSON *profile = NULL;
         cJSON *characters = NULL;
         int profile_count = cJSON_GetArraySize(json);
@@ -157,11 +158,11 @@ void read_health_data(int *current, int *max, int *temp) {
     cJSON_Delete(json);
 }
 
+//function to interpret the User's interactions with the UI
 void write_health_data(int current, int max, int temp) {
     const char *file_path = is_guest_mode ? GUEST_DATA_FILE : HEALTH_DATA_FILE;
 
     if (is_guest_mode) {
-        // 🚀 Guest mode: Write simple JSON structure
         cJSON *guest_json = cJSON_CreateObject();
         cJSON_AddStringToObject(guest_json, "name", "Guest");
         cJSON_AddNumberToObject(guest_json, "current_hp", current);
@@ -183,7 +184,7 @@ void write_health_data(int current, int max, int temp) {
         return;
     }
 
-    // 🚀 Normal mode: Modify health_data.json
+    //  Normal mode: Modify health_data.json
     FILE *file = fopen(HEALTH_DATA_FILE, "r");
     if (!file) {
         printf("ERROR: Cannot open health data file for writing!\n");
@@ -206,7 +207,7 @@ void write_health_data(int current, int max, int temp) {
         return;
     }
 
-    // 🚀 Find the selected profile
+    //  Find the selected profile
     cJSON *profile = NULL;
     cJSON *characters = NULL;
     int profile_count = cJSON_GetArraySize(json);
@@ -227,7 +228,7 @@ void write_health_data(int current, int max, int temp) {
         return;
     }
 
-    // 🚀 Find the selected character
+    // Find the selected character
     cJSON *character = NULL;
     int char_count = cJSON_GetArraySize(characters);
 
@@ -260,7 +261,6 @@ void write_health_data(int current, int max, int temp) {
     free(updated_json_string);
     cJSON_Delete(json);
 
-    // 🚀 Background API update
     send_health_update(selected_character, current, max, temp);
 }
 
@@ -271,7 +271,6 @@ void update_health_display() {
     char character_name[50];
 
     if (is_guest_mode) {
-        // 🚀 Read guest name from guest_data.json
         FILE *guest_file = fopen(GUEST_DATA_FILE, "r");
         if (guest_file) {
             char buffer[256];
@@ -306,12 +305,11 @@ void update_health_display() {
     lv_textarea_set_text(ui_TextArea1, temp_hp_text);
     lv_textarea_set_text(ui_TempInputDisplay, temp_hp_text);
 
-    // 🚀 Update Name Panel & NameBoard
     lv_textarea_set_text(ui_CharName, character_name);
     lv_textarea_set_text(ui_NameBoardDisplay, character_name);
 }
 
-
+//function to set the characters name
 void set_character_name(const char *new_name) {
     if (is_guest_mode) {
         printf("WARNING: Guest name cannot be changed!\n");
@@ -345,7 +343,7 @@ void set_character_name(const char *new_name) {
     if (is_guest_mode) {
         cJSON_ReplaceItemInObject(json, "name", cJSON_CreateString(new_name));
     } else {
-        // ✅ Find profile by ID
+        //  Find profile by ID
         cJSON *profile = NULL;
         cJSON *characters = NULL;
         int profile_count = cJSON_GetArraySize(json);
@@ -366,7 +364,7 @@ void set_character_name(const char *new_name) {
             return;
         }
 
-        // ✅ Find character by ID
+        //  Find character by ID
         cJSON *character = NULL;
         int char_count = cJSON_GetArraySize(characters);
 
@@ -381,7 +379,7 @@ void set_character_name(const char *new_name) {
         }
     }
 
-    // ✅ Save updated JSON to file
+    //  Save updated JSON to file
     char *updated_json = cJSON_Print(json);
     file = fopen(file_path, "w");
     if (file) {
@@ -394,12 +392,12 @@ void set_character_name(const char *new_name) {
     free(updated_json);
     cJSON_Delete(json);
 
-    // ✅ Update UI and send API update
+    //  Update UI and send API update
     strcpy(selected_character, new_name);
     lv_textarea_set_text(ui_CharName, new_name);
     lv_textarea_set_text(ui_NameBoardDisplay, new_name);
 
-    // ✅ Send updated name to the API
+    //  Send updated name to the API
     int current_health, max_health, temp_health;
     read_health_data(&current_health, &max_health, &temp_health);
     send_health_update(new_name, current_health, max_health, temp_health);
@@ -464,12 +462,12 @@ void set_temp_health(int value) {
     update_health_display();
 }
 
-
+//function to set guest mode when not using a specfic profile 
 void enable_guest_mode(lv_event_t *e) {
     is_guest_mode = 1;
     printf("DEBUG: Guest Mode Enabled. Loading guest data...\n");
 
-    // 🚀 Reset guest data at startup
+    //  Reset guest data at startup
     FILE *guest_file = fopen(GUEST_DATA_FILE, "w");
     if (guest_file) {
         fprintf(guest_file, "{\"name\":\"Guest\", \"current_hp\":0, \"max_hp\":0, \"temp_hp\":0}");
@@ -558,16 +556,16 @@ void back_button_event_cb(lv_event_t *e) {
 
     if (is_guest_mode) {
         printf("DEBUG: Exiting Guest Mode...\n");
-        is_guest_mode = 0; // 🚀 Disable guest mode
+        is_guest_mode = 0; //  Disable guest mode
         
         // Reset selected profile and character
         strcpy(selected_profile, "");
         strcpy(selected_character, "");
 
-        // 🚀 Reload Profiles & Characters (reset dropdowns)
+        //  Reload Profiles & Characters (reset dropdowns)
         load_profiles();
         
-        // 🚀 Auto-select first profile & character
+        // Auto-select first profile & character
         lv_dropdown_set_selected(ui_Dropdown1, 0);
         on_profile_selected(NULL);  // Simulate profile selection
 
@@ -582,7 +580,7 @@ void back_button_event_cb(lv_event_t *e) {
         
         lv_dropdown_set_selected(ui_Dropdown2, 0);
         on_character_selected(NULL);  // Simulate character selection
-        // 🚀 Normal mode: Return to Character Selection
+        //  Normal mode: Return to Character Selection
         _ui_screen_change(&ui_CharChoiceScreen, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 200, 0, &ui_CharChoiceScreen_screen_init);
     }
 }
@@ -594,10 +592,10 @@ void back_button_event_cb(lv_event_t *e) {
 void setup_health_screen_events() {
     printf("DEBUG: Attaching Events...\n");
 
-    // 🚀 Attach Guest Button Event
+    //  Attach Guest Button Event
     lv_obj_add_event_cb(ui_GuestChoice, enable_guest_mode, LV_EVENT_CLICKED, NULL);
 
-    // 🚀 Attach Back Button Event
+    //  Attach Back Button Event
     lv_obj_add_event_cb(ui_Back, back_button_event_cb, LV_EVENT_CLICKED, NULL);
 
     // Attach heal and damage button events
@@ -614,7 +612,7 @@ void setup_health_screen_events() {
     lv_obj_add_event_cb(ui_CHPad, current_health_input_cb, LV_EVENT_READY, NULL);
     lv_obj_add_event_cb(ui_TempPad, temp_health_input_cb, LV_EVENT_READY, NULL);
 
-    // 🚀 Attach callback for name input field
+    //  Attach callback for name input field
     lv_obj_add_event_cb(ui_NameBoardDisplay, character_name_input_cb, LV_EVENT_READY, NULL);
 
     printf("DEBUG: Event Callbacks Attached Successfully!\n");

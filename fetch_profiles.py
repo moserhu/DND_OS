@@ -2,8 +2,8 @@ import requests
 import json
 
 # API URL (Replace with your actual API IP)
-API_URL = "http://192.168.1.222:8000/profiles"  # Replace X with correct IP
-LOCAL_JSON_FILE = "/home/dnd1/Documents/DND_Screen/health_data.json"  # Update path
+API_URL = "http://192.168.1.116:9092/profiles"  
+LOCAL_JSON_FILE = "/home/dnd1/Documents/DND_Screen/health_data.json"  
 
 def fetch_and_save_profiles():
     try:
