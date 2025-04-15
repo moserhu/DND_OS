@@ -310,6 +310,7 @@ file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/dnd1/Documents/DND_Scre
 set(OLD_GLOB
   "/home/dnd1/Documents/DND_Screen/src/add_char_logic.c"
   "/home/dnd1/Documents/DND_Screen/src/character_logic.c"
+  "/home/dnd1/Documents/DND_Screen/src/delete_char_logic.c"
   "/home/dnd1/Documents/DND_Screen/src/health_tracker.c"
   "/home/dnd1/Documents/DND_Screen/src/profile_logic.c"
   )

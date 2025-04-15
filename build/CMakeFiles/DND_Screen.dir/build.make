@@ -4423,10 +4423,24 @@ CMakeFiles/DND_Screen.dir/src/character_logic.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/DND_Screen.dir/src/character_logic.c.s"
 	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/dnd1/Documents/DND_Screen/src/character_logic.c -o CMakeFiles/DND_Screen.dir/src/character_logic.c.s
 
+CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.obj: CMakeFiles/DND_Screen.dir/flags.make
+CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.obj: /home/dnd1/Documents/DND_Screen/src/delete_char_logic.c
+CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.obj: CMakeFiles/DND_Screen.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dnd1/Documents/DND_Screen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_312) "Building C object CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.obj"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.obj -MF CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.obj.d -o CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.obj -c /home/dnd1/Documents/DND_Screen/src/delete_char_logic.c
+
+CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.i"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/dnd1/Documents/DND_Screen/src/delete_char_logic.c > CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.i
+
+CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.s"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/dnd1/Documents/DND_Screen/src/delete_char_logic.c -o CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.s
+
 CMakeFiles/DND_Screen.dir/src/health_tracker.c.obj: CMakeFiles/DND_Screen.dir/flags.make
 CMakeFiles/DND_Screen.dir/src/health_tracker.c.obj: /home/dnd1/Documents/DND_Screen/src/health_tracker.c
 CMakeFiles/DND_Screen.dir/src/health_tracker.c.obj: CMakeFiles/DND_Screen.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dnd1/Documents/DND_Screen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_312) "Building C object CMakeFiles/DND_Screen.dir/src/health_tracker.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dnd1/Documents/DND_Screen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_313) "Building C object CMakeFiles/DND_Screen.dir/src/health_tracker.c.obj"
 	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DND_Screen.dir/src/health_tracker.c.obj -MF CMakeFiles/DND_Screen.dir/src/health_tracker.c.obj.d -o CMakeFiles/DND_Screen.dir/src/health_tracker.c.obj -c /home/dnd1/Documents/DND_Screen/src/health_tracker.c
 
 CMakeFiles/DND_Screen.dir/src/health_tracker.c.i: cmake_force
@@ -4440,7 +4454,7 @@ CMakeFiles/DND_Screen.dir/src/health_tracker.c.s: cmake_force
 CMakeFiles/DND_Screen.dir/src/profile_logic.c.obj: CMakeFiles/DND_Screen.dir/flags.make
 CMakeFiles/DND_Screen.dir/src/profile_logic.c.obj: /home/dnd1/Documents/DND_Screen/src/profile_logic.c
 CMakeFiles/DND_Screen.dir/src/profile_logic.c.obj: CMakeFiles/DND_Screen.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dnd1/Documents/DND_Screen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_313) "Building C object CMakeFiles/DND_Screen.dir/src/profile_logic.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dnd1/Documents/DND_Screen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_314) "Building C object CMakeFiles/DND_Screen.dir/src/profile_logic.c.obj"
 	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DND_Screen.dir/src/profile_logic.c.obj -MF CMakeFiles/DND_Screen.dir/src/profile_logic.c.obj.d -o CMakeFiles/DND_Screen.dir/src/profile_logic.c.obj -c /home/dnd1/Documents/DND_Screen/src/profile_logic.c
 
 CMakeFiles/DND_Screen.dir/src/profile_logic.c.i: cmake_force
@@ -4764,6 +4778,7 @@ DND_Screen_OBJECTS = \
 "CMakeFiles/DND_Screen.dir/ui/ui_helpers.c.obj" \
 "CMakeFiles/DND_Screen.dir/src/add_char_logic.c.obj" \
 "CMakeFiles/DND_Screen.dir/src/character_logic.c.obj" \
+"CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.obj" \
 "CMakeFiles/DND_Screen.dir/src/health_tracker.c.obj" \
 "CMakeFiles/DND_Screen.dir/src/profile_logic.c.obj"
 
@@ -5081,12 +5096,13 @@ DND_Screen: CMakeFiles/DND_Screen.dir/ui/ui.c.obj
 DND_Screen: CMakeFiles/DND_Screen.dir/ui/ui_helpers.c.obj
 DND_Screen: CMakeFiles/DND_Screen.dir/src/add_char_logic.c.obj
 DND_Screen: CMakeFiles/DND_Screen.dir/src/character_logic.c.obj
+DND_Screen: CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.obj
 DND_Screen: CMakeFiles/DND_Screen.dir/src/health_tracker.c.obj
 DND_Screen: CMakeFiles/DND_Screen.dir/src/profile_logic.c.obj
 DND_Screen: CMakeFiles/DND_Screen.dir/build.make
 DND_Screen: /usr/lib/aarch64-linux-gnu/libcurl.so
 DND_Screen: CMakeFiles/DND_Screen.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dnd1/Documents/DND_Screen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_314) "Linking C executable DND_Screen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dnd1/Documents/DND_Screen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_315) "Linking C executable DND_Screen"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DND_Screen.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

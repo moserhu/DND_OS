@@ -6,5 +6,6 @@
 void add_new_character(lv_event_t *e);
 void setup_add_char_events(); 
 void run_fetch_profiles();
+void load_last_character(const char *profile_name);
 
 #endif

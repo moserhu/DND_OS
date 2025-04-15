@@ -7258,6 +7258,30 @@ src/character_logic.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DND_Screen.dir/build.make CMakeFiles/DND_Screen.dir/src/character_logic.c.s
 .PHONY : src/character_logic.c.s
 
+src/delete_char_logic.obj: src/delete_char_logic.c.obj
+.PHONY : src/delete_char_logic.obj
+
+# target to build an object file
+src/delete_char_logic.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DND_Screen.dir/build.make CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.obj
+.PHONY : src/delete_char_logic.c.obj
+
+src/delete_char_logic.i: src/delete_char_logic.c.i
+.PHONY : src/delete_char_logic.i
+
+# target to preprocess a source file
+src/delete_char_logic.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DND_Screen.dir/build.make CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.i
+.PHONY : src/delete_char_logic.c.i
+
+src/delete_char_logic.s: src/delete_char_logic.c.s
+.PHONY : src/delete_char_logic.s
+
+# target to generate assembly for a file
+src/delete_char_logic.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DND_Screen.dir/build.make CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.s
+.PHONY : src/delete_char_logic.c.s
+
 src/health_tracker.obj: src/health_tracker.c.obj
 .PHONY : src/health_tracker.obj
 
@@ -8542,6 +8566,9 @@ help:
 	@echo "... src/character_logic.obj"
 	@echo "... src/character_logic.i"
 	@echo "... src/character_logic.s"
+	@echo "... src/delete_char_logic.obj"
+	@echo "... src/delete_char_logic.i"
+	@echo "... src/delete_char_logic.s"
 	@echo "... src/health_tracker.obj"
 	@echo "... src/health_tracker.i"
 	@echo "... src/health_tracker.s"

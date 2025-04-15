@@ -1,51 +1,7 @@
-CMakeFiles/DND_Screen.dir/main.c.obj: \
- /home/dnd1/Documents/DND_Screen/main.c /usr/include/stdc-predef.h \
- /usr/include/stdlib.h \
- /usr/include/aarch64-linux-gnu/bits/libc-header-start.h \
- /usr/include/features.h /usr/include/features-time64.h \
- /usr/include/aarch64-linux-gnu/bits/wordsize.h \
- /usr/include/aarch64-linux-gnu/bits/timesize.h \
- /usr/include/aarch64-linux-gnu/sys/cdefs.h \
- /usr/include/aarch64-linux-gnu/bits/long-double.h \
- /usr/include/aarch64-linux-gnu/gnu/stubs.h \
- /usr/include/aarch64-linux-gnu/gnu/stubs-lp64.h \
- /usr/lib/gcc/aarch64-linux-gnu/12/include/stddef.h \
- /usr/include/aarch64-linux-gnu/bits/waitflags.h \
- /usr/include/aarch64-linux-gnu/bits/waitstatus.h \
- /usr/include/aarch64-linux-gnu/bits/floatn.h \
- /usr/include/aarch64-linux-gnu/bits/floatn-common.h \
- /usr/include/aarch64-linux-gnu/sys/types.h \
- /usr/include/aarch64-linux-gnu/bits/types.h \
- /usr/include/aarch64-linux-gnu/bits/typesizes.h \
- /usr/include/aarch64-linux-gnu/bits/time64.h \
- /usr/include/aarch64-linux-gnu/bits/types/clock_t.h \
- /usr/include/aarch64-linux-gnu/bits/types/clockid_t.h \
- /usr/include/aarch64-linux-gnu/bits/types/time_t.h \
- /usr/include/aarch64-linux-gnu/bits/types/timer_t.h \
- /usr/include/aarch64-linux-gnu/bits/stdint-intn.h /usr/include/endian.h \
- /usr/include/aarch64-linux-gnu/bits/endian.h \
- /usr/include/aarch64-linux-gnu/bits/endianness.h \
- /usr/include/aarch64-linux-gnu/bits/byteswap.h \
- /usr/include/aarch64-linux-gnu/bits/uintn-identity.h \
- /usr/include/aarch64-linux-gnu/sys/select.h \
- /usr/include/aarch64-linux-gnu/bits/select.h \
- /usr/include/aarch64-linux-gnu/bits/types/sigset_t.h \
- /usr/include/aarch64-linux-gnu/bits/types/__sigset_t.h \
- /usr/include/aarch64-linux-gnu/bits/types/struct_timeval.h \
- /usr/include/aarch64-linux-gnu/bits/types/struct_timespec.h \
- /usr/include/aarch64-linux-gnu/bits/pthreadtypes.h \
- /usr/include/aarch64-linux-gnu/bits/thread-shared-types.h \
- /usr/include/aarch64-linux-gnu/bits/pthreadtypes-arch.h \
- /usr/include/aarch64-linux-gnu/bits/atomic_wide_counter.h \
- /usr/include/aarch64-linux-gnu/bits/struct_mutex.h \
- /usr/include/aarch64-linux-gnu/bits/struct_rwlock.h \
- /usr/include/alloca.h /usr/include/aarch64-linux-gnu/bits/stdlib-float.h \
- /usr/include/unistd.h /usr/include/aarch64-linux-gnu/bits/posix_opt.h \
- /usr/include/aarch64-linux-gnu/bits/environments.h \
- /usr/include/aarch64-linux-gnu/bits/confname.h \
- /usr/include/aarch64-linux-gnu/bits/getopt_posix.h \
- /usr/include/aarch64-linux-gnu/bits/getopt_core.h \
- /usr/include/aarch64-linux-gnu/bits/unistd_ext.h \
+CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.obj: \
+ /home/dnd1/Documents/DND_Screen/src/delete_char_logic.c \
+ /usr/include/stdc-predef.h \
+ /home/dnd1/Documents/DND_Screen/src/delete_char_logic.h \
  /home/dnd1/Documents/DND_Screen/lvgl/lvgl.h \
  /home/dnd1/Documents/DND_Screen/lvgl/src/lv_init.h \
  /usr/lib/gcc/aarch64-linux-gnu/12/include/stdbool.h \
@@ -55,8 +11,21 @@ CMakeFiles/DND_Screen.dir/main.c.obj: \
  /home/dnd1/Documents/DND_Screen/lvgl/src/stdlib/lv_mem.h \
  /home/dnd1/Documents/DND_Screen/lvgl/src/stdlib/../lv_conf_internal.h \
  /usr/lib/gcc/aarch64-linux-gnu/12/include/stdint.h /usr/include/stdint.h \
+ /usr/include/aarch64-linux-gnu/bits/libc-header-start.h \
+ /usr/include/features.h /usr/include/features-time64.h \
+ /usr/include/aarch64-linux-gnu/bits/wordsize.h \
+ /usr/include/aarch64-linux-gnu/bits/timesize.h \
+ /usr/include/aarch64-linux-gnu/sys/cdefs.h \
+ /usr/include/aarch64-linux-gnu/bits/long-double.h \
+ /usr/include/aarch64-linux-gnu/gnu/stubs.h \
+ /usr/include/aarch64-linux-gnu/gnu/stubs-lp64.h \
+ /usr/include/aarch64-linux-gnu/bits/types.h \
+ /usr/include/aarch64-linux-gnu/bits/typesizes.h \
+ /usr/include/aarch64-linux-gnu/bits/time64.h \
  /usr/include/aarch64-linux-gnu/bits/wchar.h \
- /usr/include/aarch64-linux-gnu/bits/stdint-uintn.h /usr/include/string.h \
+ /usr/include/aarch64-linux-gnu/bits/stdint-intn.h \
+ /usr/include/aarch64-linux-gnu/bits/stdint-uintn.h \
+ /usr/lib/gcc/aarch64-linux-gnu/12/include/stddef.h /usr/include/string.h \
  /usr/include/aarch64-linux-gnu/bits/types/locale_t.h \
  /usr/include/aarch64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/strings.h \
@@ -116,6 +85,32 @@ CMakeFiles/DND_Screen.dir/main.c.obj: \
  /home/dnd1/Documents/DND_Screen/lvgl/src/core/../misc/../font/../misc/cache/../../osal/lv_os_none.h \
  /home/dnd1/Documents/DND_Screen/lvgl/src/core/../misc/../font/../misc/cache/../lv_types.h \
  /home/dnd1/Documents/DND_Screen/lvgl/src/core/../misc/../font/../misc/cache/lv_cache_private.h \
+ /usr/include/stdlib.h /usr/include/aarch64-linux-gnu/bits/waitflags.h \
+ /usr/include/aarch64-linux-gnu/bits/waitstatus.h \
+ /usr/include/aarch64-linux-gnu/bits/floatn.h \
+ /usr/include/aarch64-linux-gnu/bits/floatn-common.h \
+ /usr/include/aarch64-linux-gnu/sys/types.h \
+ /usr/include/aarch64-linux-gnu/bits/types/clock_t.h \
+ /usr/include/aarch64-linux-gnu/bits/types/clockid_t.h \
+ /usr/include/aarch64-linux-gnu/bits/types/time_t.h \
+ /usr/include/aarch64-linux-gnu/bits/types/timer_t.h \
+ /usr/include/endian.h /usr/include/aarch64-linux-gnu/bits/endian.h \
+ /usr/include/aarch64-linux-gnu/bits/endianness.h \
+ /usr/include/aarch64-linux-gnu/bits/byteswap.h \
+ /usr/include/aarch64-linux-gnu/bits/uintn-identity.h \
+ /usr/include/aarch64-linux-gnu/sys/select.h \
+ /usr/include/aarch64-linux-gnu/bits/select.h \
+ /usr/include/aarch64-linux-gnu/bits/types/sigset_t.h \
+ /usr/include/aarch64-linux-gnu/bits/types/__sigset_t.h \
+ /usr/include/aarch64-linux-gnu/bits/types/struct_timeval.h \
+ /usr/include/aarch64-linux-gnu/bits/types/struct_timespec.h \
+ /usr/include/aarch64-linux-gnu/bits/pthreadtypes.h \
+ /usr/include/aarch64-linux-gnu/bits/thread-shared-types.h \
+ /usr/include/aarch64-linux-gnu/bits/pthreadtypes-arch.h \
+ /usr/include/aarch64-linux-gnu/bits/atomic_wide_counter.h \
+ /usr/include/aarch64-linux-gnu/bits/struct_mutex.h \
+ /usr/include/aarch64-linux-gnu/bits/struct_rwlock.h \
+ /usr/include/alloca.h /usr/include/aarch64-linux-gnu/bits/stdlib-float.h \
  /home/dnd1/Documents/DND_Screen/lvgl/src/core/../misc/../font/../misc/cache/_lv_cache_lru_rb.h \
  /home/dnd1/Documents/DND_Screen/lvgl/src/core/../misc/../font/../misc/cache/lv_image_cache.h \
  /home/dnd1/Documents/DND_Screen/lvgl/src/core/../misc/lv_color.h \
@@ -435,20 +430,14 @@ CMakeFiles/DND_Screen.dir/main.c.obj: \
  /home/dnd1/Documents/DND_Screen/lvgl/src/core/../stdlib/builtin/../../misc/lv_ll.h \
  /home/dnd1/Documents/DND_Screen/lvgl/src/core/../tick/lv_tick.h \
  /home/dnd1/Documents/DND_Screen/lvgl/src/core/../layouts/lv_layout.h \
- /home/dnd1/Documents/DND_Screen/ui/ui.h \
- /home/dnd1/Documents/DND_Screen/lvgl/lvgl.h \
- /home/dnd1/Documents/DND_Screen/ui/ui_helpers.h \
- /home/dnd1/Documents/DND_Screen/ui/ui.h \
- /home/dnd1/Documents/DND_Screen/ui/components/ui_comp.h \
- /home/dnd1/Documents/DND_Screen/ui/components/../ui.h \
- /home/dnd1/Documents/DND_Screen/ui/components/ui_comp_numpad.h \
- /home/dnd1/Documents/DND_Screen/ui/components/ui_comp_hook.h \
- /home/dnd1/Documents/DND_Screen/ui/ui_events.h \
- /home/dnd1/Documents/DND_Screen/src/health_tracker.h \
- /home/dnd1/Documents/DND_Screen/src/profile_logic.h \
- /home/dnd1/Documents/DND_Screen/src/character_logic.h \
- /home/dnd1/Documents/DND_Screen/src/delete_char_logic.h \
- /home/dnd1/Documents/DND_Screen/src/add_char_logic.h \
+ /home/dnd1/Documents/DND_Screen/src/../ui/ui.h \
+ /home/dnd1/Documents/DND_Screen/src/../ui/ui_helpers.h \
+ /home/dnd1/Documents/DND_Screen/src/../ui/ui.h \
+ /home/dnd1/Documents/DND_Screen/src/../ui/components/ui_comp.h \
+ /home/dnd1/Documents/DND_Screen/src/../ui/components/../ui.h \
+ /home/dnd1/Documents/DND_Screen/src/../ui/components/ui_comp_numpad.h \
+ /home/dnd1/Documents/DND_Screen/src/../ui/components/ui_comp_hook.h \
+ /home/dnd1/Documents/DND_Screen/src/../ui/ui_events.h \
  /usr/include/stdio.h \
  /usr/include/aarch64-linux-gnu/bits/types/__fpos_t.h \
  /usr/include/aarch64-linux-gnu/bits/types/__mbstate_t.h \
@@ -456,5 +445,52 @@ CMakeFiles/DND_Screen.dir/main.c.obj: \
  /usr/include/aarch64-linux-gnu/bits/types/__FILE.h \
  /usr/include/aarch64-linux-gnu/bits/types/FILE.h \
  /usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h \
- /usr/include/aarch64-linux-gnu/bits/stdio_lim.h \
- /usr/include/cjson/cJSON.h
+ /usr/include/aarch64-linux-gnu/bits/stdio_lim.h /usr/include/unistd.h \
+ /usr/include/aarch64-linux-gnu/bits/posix_opt.h \
+ /usr/include/aarch64-linux-gnu/bits/environments.h \
+ /usr/include/aarch64-linux-gnu/bits/confname.h \
+ /usr/include/aarch64-linux-gnu/bits/getopt_posix.h \
+ /usr/include/aarch64-linux-gnu/bits/getopt_core.h \
+ /usr/include/aarch64-linux-gnu/bits/unistd_ext.h \
+ /usr/include/aarch64-linux-gnu/curl/curl.h \
+ /usr/include/aarch64-linux-gnu/curl/curlver.h \
+ /usr/include/aarch64-linux-gnu/curl/system.h \
+ /usr/include/aarch64-linux-gnu/sys/socket.h \
+ /usr/include/aarch64-linux-gnu/bits/types/struct_iovec.h \
+ /usr/include/aarch64-linux-gnu/bits/socket.h \
+ /usr/include/aarch64-linux-gnu/bits/socket_type.h \
+ /usr/include/aarch64-linux-gnu/bits/sockaddr.h \
+ /usr/lib/linux/uapi/arm64/asm/socket.h /usr/include/asm-generic/socket.h \
+ /usr/include/linux/posix_types.h /usr/include/linux/stddef.h \
+ /usr/lib/linux/uapi/arm64/asm/posix_types.h \
+ /usr/include/asm-generic/posix_types.h \
+ /usr/lib/linux/uapi/arm64/asm/bitsperlong.h \
+ /usr/include/asm-generic/bitsperlong.h \
+ /usr/lib/linux/uapi/arm64/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h \
+ /usr/include/aarch64-linux-gnu/bits/types/struct_osockaddr.h \
+ /usr/lib/gcc/aarch64-linux-gnu/12/include/limits.h \
+ /usr/lib/gcc/aarch64-linux-gnu/12/include/syslimits.h \
+ /usr/include/limits.h /usr/include/aarch64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/aarch64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/aarch64-linux-gnu/bits/pthread_stack_min-dynamic.h \
+ /usr/include/aarch64-linux-gnu/bits/pthread_stack_min.h \
+ /usr/include/aarch64-linux-gnu/bits/posix2_lim.h /usr/include/time.h \
+ /usr/include/aarch64-linux-gnu/bits/time.h \
+ /usr/include/aarch64-linux-gnu/bits/types/struct_tm.h \
+ /usr/include/aarch64-linux-gnu/bits/types/struct_itimerspec.h \
+ /usr/include/aarch64-linux-gnu/sys/time.h \
+ /usr/include/aarch64-linux-gnu/curl/easy.h \
+ /usr/include/aarch64-linux-gnu/curl/multi.h \
+ /usr/include/aarch64-linux-gnu/curl/curl.h \
+ /usr/include/aarch64-linux-gnu/curl/urlapi.h \
+ /usr/include/aarch64-linux-gnu/curl/options.h \
+ /usr/include/aarch64-linux-gnu/curl/header.h \
+ /usr/include/aarch64-linux-gnu/curl/websockets.h \
+ /usr/include/aarch64-linux-gnu/curl/typecheck-gcc.h \
+ /usr/include/cjson/cJSON.h \
+ /home/dnd1/Documents/DND_Screen/src/profile_logic.h \
+ /home/dnd1/Documents/DND_Screen/src/character_logic.h \
+ /home/dnd1/Documents/DND_Screen/src/health_tracker.h \
+ /home/dnd1/Documents/DND_Screen/src/add_char_logic.h

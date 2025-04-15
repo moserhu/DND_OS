@@ -14,6 +14,7 @@
 #include "src/health_tracker.h"
 #include "src/profile_logic.h"
 #include "src/character_logic.h"
+#include "src/delete_char_logic.h"
 #include "add_char_logic.h"
 #include <stdio.h>
 #include <cjson/cJSON.h>
@@ -86,6 +87,9 @@ int main(int argc, char **argv) {
 
     /*Inside your main setup function */
     setup_add_char_events();
+
+    /* Attach delete event to confirmation button */
+    setup_delete_char_events();
     
 
     printf("DEBUG: Starting LVGL loop...\n");

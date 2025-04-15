@@ -2,26 +2,8 @@
 		"id":	1,
 		"name":	"Pablo",
 		"characters":	[{
-				"id":	1,
-				"name":	"hi",
-				"current_hp":	5,
-				"max_hp":	36,
-				"temp_hp":	0
-			}, {
-				"id":	2,
-				"name":	"him",
-				"current_hp":	69,
-				"max_hp":	100,
-				"temp_hp":	0
-			}, {
-				"id":	3,
-				"name":	"kol",
-				"current_hp":	100,
-				"max_hp":	100,
-				"temp_hp":	0
-			}, {
-				"id":	4,
-				"name":	"New Character",
+				"id":	18,
+				"name":	"taco",
 				"current_hp":	100,
 				"max_hp":	100,
 				"temp_hp":	0

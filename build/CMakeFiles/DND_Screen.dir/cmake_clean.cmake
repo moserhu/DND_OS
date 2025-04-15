@@ -593,6 +593,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/DND_Screen.dir/src/add_char_logic.c.obj.d"
   "CMakeFiles/DND_Screen.dir/src/character_logic.c.obj"
   "CMakeFiles/DND_Screen.dir/src/character_logic.c.obj.d"
+  "CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.obj"
+  "CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.obj.d"
   "CMakeFiles/DND_Screen.dir/src/health_tracker.c.obj"
   "CMakeFiles/DND_Screen.dir/src/health_tracker.c.obj.d"
   "CMakeFiles/DND_Screen.dir/src/profile_logic.c.obj"
