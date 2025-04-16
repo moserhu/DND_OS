@@ -10,6 +10,7 @@
 #include "character_logic.h"
 #include "health_tracker.h"
 #include "add_char_logic.h" 
+#include "settings_screen.h"
 
 #define DELETE_API_URL "http://192.168.1.116:9092/profiles/%d/characters/%d"
 
@@ -67,6 +68,9 @@ void delete_selected_character(lv_event_t *e) {
     lv_obj_clear_flag(ui_AllSettingsContainer, LV_OBJ_FLAG_HIDDEN);
 
     printf("DEBUG: Character deletion complete and UI updated.\n");
+
+    //  Update settings screen
+    update_settings_screen_info();
 }
 
 // Attach delete event

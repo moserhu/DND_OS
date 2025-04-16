@@ -7,6 +7,7 @@
 #include <curl/curl.h> 
 #include "character_logic.h" 
 #include "profile_logic.h"
+#include "settings_screen.h"
 
 
 #define HEALTH_DATA_FILE "/home/dnd1/Documents/DND_Screen/health_data.json"
@@ -391,6 +392,7 @@ void set_character_name(const char *new_name) {
 
     free(updated_json);
     cJSON_Delete(json);
+    update_settings_screen_info();
 
     //  Update UI and send API update
     strcpy(selected_character, new_name);
@@ -401,6 +403,9 @@ void set_character_name(const char *new_name) {
     int current_health, max_health, temp_health;
     read_health_data(&current_health, &max_health, &temp_health);
     send_health_update(new_name, current_health, max_health, temp_health);
+
+    // update setting screen
+    update_settings_screen_info();
 }
 
 

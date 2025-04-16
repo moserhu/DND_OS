@@ -493,4 +493,5 @@ CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.obj: \
  /home/dnd1/Documents/DND_Screen/src/profile_logic.h \
  /home/dnd1/Documents/DND_Screen/src/character_logic.h \
  /home/dnd1/Documents/DND_Screen/src/health_tracker.h \
- /home/dnd1/Documents/DND_Screen/src/add_char_logic.h
+ /home/dnd1/Documents/DND_Screen/src/add_char_logic.h \
+ /home/dnd1/Documents/DND_Screen/src/settings_screen.h

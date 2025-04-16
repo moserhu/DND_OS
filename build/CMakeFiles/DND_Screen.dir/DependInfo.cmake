@@ -308,6 +308,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/dnd1/Documents/DND_Screen/src/delete_char_logic.c" "CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.obj" "gcc" "CMakeFiles/DND_Screen.dir/src/delete_char_logic.c.obj.d"
   "/home/dnd1/Documents/DND_Screen/src/health_tracker.c" "CMakeFiles/DND_Screen.dir/src/health_tracker.c.obj" "gcc" "CMakeFiles/DND_Screen.dir/src/health_tracker.c.obj.d"
   "/home/dnd1/Documents/DND_Screen/src/profile_logic.c" "CMakeFiles/DND_Screen.dir/src/profile_logic.c.obj" "gcc" "CMakeFiles/DND_Screen.dir/src/profile_logic.c.obj.d"
+  "/home/dnd1/Documents/DND_Screen/src/settings_screen.c" "CMakeFiles/DND_Screen.dir/src/settings_screen.c.obj" "gcc" "CMakeFiles/DND_Screen.dir/src/settings_screen.c.obj.d"
   "/home/dnd1/Documents/DND_Screen/ui/components/ui_comp.c" "CMakeFiles/DND_Screen.dir/ui/components/ui_comp.c.obj" "gcc" "CMakeFiles/DND_Screen.dir/ui/components/ui_comp.c.obj.d"
   "/home/dnd1/Documents/DND_Screen/ui/components/ui_comp_hook.c" "CMakeFiles/DND_Screen.dir/ui/components/ui_comp_hook.c.obj" "gcc" "CMakeFiles/DND_Screen.dir/ui/components/ui_comp_hook.c.obj.d"
   "/home/dnd1/Documents/DND_Screen/ui/components/ui_comp_numpad.c" "CMakeFiles/DND_Screen.dir/ui/components/ui_comp_numpad.c.obj" "gcc" "CMakeFiles/DND_Screen.dir/ui/components/ui_comp_numpad.c.obj.d"

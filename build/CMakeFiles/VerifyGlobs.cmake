@@ -313,6 +313,7 @@ set(OLD_GLOB
   "/home/dnd1/Documents/DND_Screen/src/delete_char_logic.c"
   "/home/dnd1/Documents/DND_Screen/src/health_tracker.c"
   "/home/dnd1/Documents/DND_Screen/src/profile_logic.c"
+  "/home/dnd1/Documents/DND_Screen/src/settings_screen.c"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")

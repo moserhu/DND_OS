@@ -7330,6 +7330,30 @@ src/profile_logic.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DND_Screen.dir/build.make CMakeFiles/DND_Screen.dir/src/profile_logic.c.s
 .PHONY : src/profile_logic.c.s
 
+src/settings_screen.obj: src/settings_screen.c.obj
+.PHONY : src/settings_screen.obj
+
+# target to build an object file
+src/settings_screen.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DND_Screen.dir/build.make CMakeFiles/DND_Screen.dir/src/settings_screen.c.obj
+.PHONY : src/settings_screen.c.obj
+
+src/settings_screen.i: src/settings_screen.c.i
+.PHONY : src/settings_screen.i
+
+# target to preprocess a source file
+src/settings_screen.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DND_Screen.dir/build.make CMakeFiles/DND_Screen.dir/src/settings_screen.c.i
+.PHONY : src/settings_screen.c.i
+
+src/settings_screen.s: src/settings_screen.c.s
+.PHONY : src/settings_screen.s
+
+# target to generate assembly for a file
+src/settings_screen.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DND_Screen.dir/build.make CMakeFiles/DND_Screen.dir/src/settings_screen.c.s
+.PHONY : src/settings_screen.c.s
+
 ui/components/ui_comp.obj: ui/components/ui_comp.c.obj
 .PHONY : ui/components/ui_comp.obj
 
@@ -8575,6 +8599,9 @@ help:
 	@echo "... src/profile_logic.obj"
 	@echo "... src/profile_logic.i"
 	@echo "... src/profile_logic.s"
+	@echo "... src/settings_screen.obj"
+	@echo "... src/settings_screen.i"
+	@echo "... src/settings_screen.s"
 	@echo "... ui/components/ui_comp.obj"
 	@echo "... ui/components/ui_comp.i"
 	@echo "... ui/components/ui_comp.s"

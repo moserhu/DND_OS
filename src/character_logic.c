@@ -7,6 +7,8 @@
 #include <cjson/cJSON.h>
 #include "profile_logic.h"
 #include "health_tracker.h"
+#include "settings_screen.h"
+
 
 #define JSON_FILE_PATH "/home/dnd1/Documents/DND_Screen/health_data.json"
 
@@ -137,6 +139,7 @@ void on_character_selected(lv_event_t * e) {
     }
 
     cJSON_Delete(json);
+    update_settings_screen_info();
 }
 
 // Function to retrieve the character ID

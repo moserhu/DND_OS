@@ -484,4 +484,5 @@ CMakeFiles/DND_Screen.dir/src/health_tracker.c.obj: \
  /usr/include/aarch64-linux-gnu/curl/websockets.h \
  /usr/include/aarch64-linux-gnu/curl/typecheck-gcc.h \
  /home/dnd1/Documents/DND_Screen/src/character_logic.h \
- /home/dnd1/Documents/DND_Screen/src/profile_logic.h
+ /home/dnd1/Documents/DND_Screen/src/profile_logic.h \
+ /home/dnd1/Documents/DND_Screen/src/settings_screen.h

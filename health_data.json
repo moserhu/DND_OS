@@ -2,8 +2,14 @@
 		"id":	1,
 		"name":	"Pablo",
 		"characters":	[{
-				"id":	18,
-				"name":	"taco",
+				"id":	19,
+				"name":	"mexican",
+				"current_hp":	100,
+				"max_hp":	100,
+				"temp_hp":	0
+			}, {
+				"id":	20,
+				"name":	"smoothy",
 				"current_hp":	100,
 				"max_hp":	100,
 				"temp_hp":	0

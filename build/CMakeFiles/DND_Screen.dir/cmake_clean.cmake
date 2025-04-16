@@ -599,6 +599,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/DND_Screen.dir/src/health_tracker.c.obj.d"
   "CMakeFiles/DND_Screen.dir/src/profile_logic.c.obj"
   "CMakeFiles/DND_Screen.dir/src/profile_logic.c.obj.d"
+  "CMakeFiles/DND_Screen.dir/src/settings_screen.c.obj"
+  "CMakeFiles/DND_Screen.dir/src/settings_screen.c.obj.d"
   "CMakeFiles/DND_Screen.dir/ui/components/ui_comp.c.obj"
   "CMakeFiles/DND_Screen.dir/ui/components/ui_comp.c.obj.d"
   "CMakeFiles/DND_Screen.dir/ui/components/ui_comp_hook.c.obj"

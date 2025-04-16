@@ -9,6 +9,7 @@
 #include "profile_logic.h"
 #include "character_logic.h"
 #include "health_tracker.h"
+#include "settings_screen.h"
 
 #define DB_API_URL "http://192.168.1.116:9092/profiles/%d/characters"
 #define JSON_FILE_PATH "/home/dnd1/Documents/DND_Screen/health_data.json"
@@ -171,6 +172,9 @@ void add_new_character(lv_event_t *e) {
 
     // Step 6: Update UI to Show the New Character
     update_health_display();
+
+    // Step 7: Update Settings Screen
+    update_settings_screen_info();
 
     printf("DEBUG: Character successfully added and set as active.\n");
 }
